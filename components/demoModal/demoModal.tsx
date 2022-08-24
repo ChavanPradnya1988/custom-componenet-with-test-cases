@@ -10,8 +10,8 @@ import {
 } from "native-base";
 
 export default (props: any) => {
-  console.log(props);
-  const [modalVisible, setModalVisible] = React.useState(false);
+  const modalVisible1 = props.isOpen;
+  const [modalVisible, setModalVisible] = React.useState(modalVisible1);
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
   return (
@@ -26,8 +26,8 @@ export default (props: any) => {
           <Modal.CloseButton />
           {/* <Modal.Header>{props.title}</Modal.Header> */}
           <Modal.Body {...props} />
-          <Modal.Footer>
-            <Button.Group space={2}>
+          {/* <Modal.Footer> */}
+          {/* <Button.Group space={2}>
               <Button
                 variant="ghost"
                 colorScheme="blueGray"
@@ -44,8 +44,8 @@ export default (props: any) => {
               >
                 Save
               </Button>
-            </Button.Group>
-          </Modal.Footer>
+            </Button.Group> */}
+          {/* </Modal.Footer> */}
         </Modal.Content>
       </Modal>
       <HStack space="4" justifyContent="center" alignItems="center">

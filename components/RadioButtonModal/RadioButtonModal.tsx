@@ -14,6 +14,8 @@ import {
 import { MaterialIcons } from "@expo/vector-icons";
 
 import RadioUi from "../RadioUI/RadioUi";
+import DemoModal from "../demoModal/demoModal";
+import AddShift from "../AddShiftModalData/addShift";
 
 interface Iprops {
   id: number;
@@ -44,67 +46,18 @@ const data: dataProps = {
 };
 
 export default function RadioButtonModal() {
-  const [modalVisible, setModalVisible] = React.useState(false);
-  const [shiftModalVisible, setShiftModalVisible] = React.useState(false);
-  const [service, setService] = React.useState("");
-  const [selected, setSelected] = useState(0);
-  const initialRef = React.useRef(null);
-  const finalRef = React.useRef(null);
+  // const [modalVisible, setModalVisible] = React.useState(false);
+  // const [shiftModalVisible, setShiftModalVisible] = React.useState(false);
+  // const [service, setService] = React.useState("");
+  // const [selected, setSelected] = useState(0);
+  // const initialRef = React.useRef(null);
+  // const finalRef = React.useRef(null);
   return (
     <>
-      <Modal
-        isOpen={modalVisible}
-        onClose={() => setModalVisible(false)}
-        initialFocusRef={initialRef}
-        finalFocusRef={finalRef}
-      >
-        <Modal.Content>
-          <Modal.CloseButton />
-          <Modal.Header>{data.title}</Modal.Header>
-          <Modal.Body>
-            {data.data.map((data: any) => {
-              return (
-                <Pressable
-                  key={data.heading}
-                  onPress={() => {
-                    setSelected(data.id);
-                  }}
-                >
-                  {({ isHovered, isPressed }) => {
-                    const status = selected === data.id;
-                    return (
-                      <HStack
-                        borderWidth="2"
-                        borderColor={status ? "#7098D5" : "#F1F0F1"}
-                        mt="2"
-                        key={data.id}
-                      >
-                        <RadioUi data={data} selected={data.id} />
-                      </HStack>
-                    );
-                  }}
-                </Pressable>
-              );
-            })}
-          </Modal.Body>
-          {/* <Modal.Footer> */}
-          <Button.Group space={3} alignSelf="center" mb="2">
-            <Button
-              px="10"
-              onPress={() => {
-                setModalVisible(false);
-                setShiftModalVisible(!shiftModalVisible);
-              }}
-            >
-              Save & Continue
-            </Button>
-          </Button.Group>
-          {/* </Modal.Footer> */}
-        </Modal.Content>
-      </Modal>
+      <AddShift data={data} />
 
       {/* Shift Modal */}
-      <Modal
+      {/* <Modal
         isOpen={shiftModalVisible}
         onClose={() => setShiftModalVisible(false)}
         initialFocusRef={initialRef}
@@ -172,7 +125,7 @@ export default function RadioButtonModal() {
             </HStack>
           </Modal.Body>
           {/* <Modal.Footer> */}
-          <Button.Group space={3} alignSelf="center" mb="2">
+      {/* <Button.Group space={3} alignSelf="center" mb="2">
             <Button
               px="10"
               onPress={() => {
@@ -184,20 +137,9 @@ export default function RadioButtonModal() {
             </Button>
           </Button.Group>
           {/* </Modal.Footer> */}
-        </Modal.Content>
-      </Modal>
+      {/* </Modal.Content>
+      </Modal> */}
       {/* Save and Continue */}
-      <HStack space="4" justifyContent="center" alignItems="center">
-        <Button
-          onPress={() => {
-            setModalVisible(!modalVisible);
-            // setShiftModalVisible(!shiftModalVisible);
-          }}
-          m="10"
-        >
-          Open Modal
-        </Button>
-      </HStack>
     </>
   );
 }

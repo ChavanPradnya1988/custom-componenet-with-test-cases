@@ -18,14 +18,18 @@ import Footer from "./components/footer/Footer";
 import DemoModal from "./components/demoModal/demoModal";
 
 export default () => {
+  const [modalVisible, setModalVisible] = React.useState(false);
+
   return (
     <NativeBaseProvider>
       {/* <Center flex={1} px="3"> */}
       {/* <RadioButton data={data} />
         <CheckBoxComponent data={checkBoxData} /> */}
-      <DemoModal>
-        <CheckBoxComponent data={checkBoxData} />
+      <DemoModal isOpen={modalVisible}>
+        {/* <CheckBoxComponent data={checkBoxData} /> */}
+        <RadioButtonModal />
       </DemoModal>
+
       {/* <RadioButtonModal /> */}
       {/* </Center> */}
       <Footer />
