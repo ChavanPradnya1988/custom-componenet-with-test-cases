@@ -14,6 +14,8 @@ import RadioButton from "./components/radioButton";
 import data from "./dummy";
 import checkBoxData from "./dummyData/CheckBox";
 import RadioButtonModal from "./components/RadioButtonModal/RadioButtonModal";
+import Footer from "./components/footer/Footer";
+import DemoModal from "./components/demoModal/demoModal";
 
 export default () => {
   return (
@@ -21,8 +23,12 @@ export default () => {
       {/* <Center flex={1} px="3"> */}
       {/* <RadioButton data={data} />
         <CheckBoxComponent data={checkBoxData} /> */}
-      <RadioButtonModal />
+      <DemoModal>
+        <CheckBoxComponent data={checkBoxData} />
+      </DemoModal>
+      {/* <RadioButtonModal /> */}
       {/* </Center> */}
+      <Footer />
     </NativeBaseProvider>
   );
 };

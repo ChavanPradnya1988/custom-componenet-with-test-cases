@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { FormControl, Radio, Box, Text, VStack } from "native-base";
 
 const RadioUi = (props: any) => {
-  const [groupValue, setGroupValue] = React.useState("");
+  console.log(props);
+  const [groupValue, setGroupValue] = React.useState(props.selected);
   const heading = props.data.heading;
   const description = props.data.desc;
   return (
